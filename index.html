@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GovDocs</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Add any additional CSS or JavaScript libraries here -->
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    
+      border: none;
+      outline: none;
+      scroll-behavior: smooth;
+      font-family: 'Crimson',sans-serif;
+  }
+  
+  :root{
+      --bg-color: #f7f1f1;
+      --second-bg-color:#ffffff;
+      --text-color: #080808;
+      --main-color:rgba(0, 0, 0, 0.274);
+  }
+  
+  html{
+      font-size: 62.5%;
+      overflow-x:hidden;
+  }
+  
+  body{
+      background: var(--bg-color) ;
+      color:var(--text-bg-color);
+  }
+  
+  section{
+      min-height: 70vh;
+      padding: 1rem 9% 2rem;
+      color: var(--text-color);
+      font-size: 1.5rem;
+  }
+  
+  
+  
+  
+  .header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 9%;
+      background: var(--second-bg-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+  }
+  
+  .header.sticky{
+      border-bottom: 10px solid rgba(0,0,0,0.2);
+  }
+  
+  .logo img{
+      width: 100px;
+      height: 80px;
+  }
+  
+  .navbar a{
+      font-size: 1.7rem;
+      color: var(--text-color);
+      margin-left: 4rem;
+      transition: .3s;
+      align-items: center;
+  }
+  
+  .navbar a:hover,
+  .navbar a.active{
+      color: var(--main-color);
+  
+  }
+  
+  .home{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+  }
+  
+  .home-content h3{
+      font-size: 3.2rem;
+      font-weight: 700;
+  }
+  
+  span{
+      color: var(--main-color);
+  
+  }
+  .home-content h3 :nth-of-type(2){
+      margin-bottom: 2rem;
+  }
+  
+  
+  .home-content p{
+      font-size: 1.6rem;
+  }
+  
+  
+  .footer-iconTop {
+  width: 33px;
+  height: 33px;
+  border: 2px solid #000000;
+  border-left: 0;
+  border-top: 0;
+
+  transform: rotate(225deg);
+}
+
+  
+  
+  .btn {
+  color: #fff;
+  padding: 15px 25px;
+  background-color: #4f5e5e;
+  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
+}
+  
+  .btn:hover {
+    box-shadow:#1f242d 10px;
+  }
+ 
+  #about{
+      background-color: var( --second-bg-color);
+      width: 100%;
+  display: grid;
+  }
+  
+  
+  #small{
+      width: 200px;
+  }
+  
+  .footer {
+      background-color: var(--second-bg-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 9%;
+      padding-left: 40%;
+      height: 80px; /* Adjust the height as needed */
+  }
+  
+  .footer-text p {
+      font-size: 1.6rem;
+      color: var(--text-color);
+      margin: 0;
+      position: absolute;
+      align-items: center; /* Remove any default margin */
+  }
+
+  .footer-iconTop i{
+    height: 100px;
+    width: 100px;
+  }
+  
+  .services {
+    background-color: var(--second-bg-color);
+    width: 100%;
+    padding: 5rem 0; /* Add padding to create space around the content */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    height: 400px;
+  }
+  
+  .services h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .services p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    height: 200px; 
+    width: 100%;/* Reduce the margin to create less space between the paragraphs */
+  }
+  
+  /* Style for the map */
+  #map {
+    height: 400px;
+    width: 100%;
+     /* Reduce the top margin to bring the map closer to the paragraphs */
+  }
+  
+  .docs{
+      background-color: var(--second-bg-color);
+      padding-top:10px ;
+  
+  }
+  
+  .docs-container{
+    display: grid;
+      grid-template-columns: repeat(3,1fr);
+      align-items: center;
+      gap: 2.5rem;
+  
+  }
+  
+  .docs-box{
+    position: relative;
+   
+    transition: transform 0.2s ease-in-out;
+      box-shadow: 0 0 1rem var(--bg-color);
+      /* overflow: hidden; */
+      height: 200px;
+      display: flex;
+      padding: 20px;
+  }
+  
+  .docs-box .docs-layer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid var(--main-color);
+      background: linear-gradient(rgba(0,0,0,0.01),var(--bg-color));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 0 4rem;
+  
+  }
+  
+  
+  .docs-layer{
+      color: #1f242d;
+      font-weight: 600;
+  }
+  .docs-layer h4{
+      font-size: 3rem;
+      margin: 3rem 0 1rem;
+  }
+  
+  .docs-box:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  }
+  @media (max-width: 768px) {
+    html {
+      font-size: 55%;
+    }
+  
+    /* Add responsive styles for smaller screens here */
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      font-size: 55%;
+    }
+  
+  }
+  
+  @media (max-width: 480px) {
+    html {
+      font-size: 45%;
+    }
+  }
+
+  /* Style for the user profile icon */
+.user-profile {
+  font-size: 10rem; /* Adjust the icon size as needed */
+  color: var(--main-color); /* Use the main color for the icon */
+  margin-top: 9rem; /* Adjust the margin as needed */
+}
+
+
+        /* Style for the modal */
+      /* CSS for the modal and overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 100px 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Style the buttons in the modal */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo"><img src="OIG1.png" alt=""></a>
+    <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#docs">Document Information</a>
+        <a href="#services">Nearby Services</a>
+        <a href="#" id="openModa">Upload Document</a>
+        <a href="#about">About</a>
+        <a href="login.php">login</a>
+    </nav>
+
+  </header>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal" onclick="closeModal()">&times;</span>
+        <h2>Login or Register</h2>
+        <p>Please log in or register to upload a document.</p>
+        <button id="loginButton" onclick="login()">Login</button>
+        <button id="registerButton" onclick="register()">Register</button>
+    </div>
+</div>
+<section class="docs" id="docs">
+    
+    <br><br><br><br><br><br>
+    <h2> <span>Documents</span> you might be looking for</h2>
+    <br>
+    <div class="docs-container">
+        <div class="docs-box">
+           <a href="adhar.html"> <div class="docs-layer" id="adhaar">
+                <h4>Adhaar Card</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+           </a>
+        </div>
+      
+        <div class="docs-box">
+          <a href="passport.html"> <!-- Add a link to the "Passport" section -->
+            <div class="docs-layer" id="pass">
+              <h4>Passport</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+        <div class="docs-box">
+          <a href="lic.html"> <!-- Add a link to the "Driving License" section -->
+            <div class="docs-layer" id="drive">
+              <h4>Driving License</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+  
+        <div class="docs-box">
+          <a href="elec.html"> <!-- Add a link to the "Election Card" section -->
+            <div class="docs-layer" id="vote">
+              <h4>Election Card</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+        <div class="docs-box">
+          <a href="birth certificate.html"> <!-- Add a link to the "Birth certificate" section -->
+            <div class="docs-layer" id="birth">
+              <h4>Birth certificate</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+  
+        <div class="docs-box">
+          <a href="pan.html"> <!-- Add a link to the "PAN Card" section -->
+            <div class="docs-layer" id="pan">
+              <h4>PAN Card</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+  
+        <div class="docs-box">
+          <a href="ration card.html"> <!-- Add a link to the "Ration Card" section -->
+            <div class="docs-layer" id="ration">
+              <h4>Ration Card</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+  
+        <div class="docs-box">
+          <a href="domicle.html"> <!-- Add a link to the "Domacile Certificate" section -->
+            <div class="docs-layer" id="doma">
+              <h4>Domacile Certificate</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+  
+        <div class="docs-box">
+          <a href="adhar pan.html"> <!-- Add a link to the "Link your Adhaar Card and PAN Card" section -->
+            <div class="docs-layer" id="link">
+              <h4>Link your Adhaar Card and PAN Card</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, suscipit.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  <section class="services" id="services">
+    <a href="login.php">
+        <div class="services" id="services">
+            <h2>Find offices <span>Near You</span></h2>
+            <p>Please log in to view the map.</p>
+            <div id="map" style="height: 4000px; width: 500%; float: right;"></div>
+            <iframe src="map.png" width="400%" height="5000" style="border:0; float: left;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+    </a>
+</section>
+
+  
+  <section class="about" id="about">
+    <h2 ><span style="color: rgb(0, 0, 0);">About</span></h2>
+    <p>Welcome to GovDocs, your one-stop destination for essential government documents and services. We are a passionate group of individuals dedicated to making access to vital documents and public services easier for everyone. Our mission is to empower citizens by providing quick and convenient access to important government resources.
+        At GovDocs, we understand the challenges people face when trying to obtain essential documents, from Aadhaar cards to passports and driving licenses. Our platform is designed to streamline this process and provide you with valuable information and assistance.</p>
+  Our committed team is continually working to expand and improve our services. We value your feedback and suggestions as we strive to make GovDocs an even more valuable resource for the community. Thank you for choosing us as your trusted partner for government-related information and services.</p>
+  <a href="about.html">
+      <button class="btn" id="small">Read More</button>
+  </a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-text">
+        <p >Copyright &copy; 2023 | All rights reserved</p>
+    </div>
+    <div class="footer-iconTop">
+        <a href="#" id="scrollToTop"><i class='bx bx-chevron-up'></i></a>
+    </div>
+  </footer>
+
+  
+  <script>
+    var modal = document.getElementById('myModal');
+    var closeModal = document.getElementById('closeModal');
+    var openModal = document.getElementById('openModa');
+    var loginButton = document.getElementById('loginButton');
+    var registerButton = document.getElementById('registerButton');
+
+    openModal.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    function login() {
+        window.location.href = 'login.php';
+    }
+
+    function register() {
+        window.location.href = 'register.php';
+    }
+    // Get a reference to the button element
+var scrollToTopButton = document.getElementById('scrollToTop');
+
+// Add a click event listener to the button
+scrollToTopButton.addEventListener('click', function() {
+    // Scroll to the top of the page smoothly
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+  </script>
+  
+    </body>
+</html>
